@@ -7,6 +7,7 @@ import org.middol.starter.jpacomment.service.AlterCommentService;
 import org.middol.starter.jpacomment.service.JpacommentService;
 import org.middol.starter.jpacomment.service.impl.MysqlAlterCommentServiceImpl;
 import org.middol.starter.jpacomment.service.impl.OracleAlterCommentServiceImpl;
+import org.middol.starter.jpacomment.service.impl.PgSqlAlterCommentServiceImpl;
 import org.middol.starter.jpacomment.service.impl.SqlServerAlterCommentServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,6 +74,9 @@ public class JpacommentAutoConfig {
         } else if (databaseType.contains(DbTypeEnum.ORACLE.getValue())) {
             schema = jdbcTemplate.queryForObject("select SYS_CONTEXT('USERENV','CURRENT_SCHEMA') CURRENT_SCHEMA from dual", String.class);
             service = new OracleAlterCommentServiceImpl();
+        } else if (databaseType.contains(DbTypeEnum.POSTGRESQL.getValue())) {
+            schema = jdbcTemplate.queryForObject(" SELECT CURRENT_SCHEMA ", String.class);
+            service = new PgSqlAlterCommentServiceImpl();
         } else {
             service = null;
             logger.error("can not find DatabaseProductName {}", databaseType);

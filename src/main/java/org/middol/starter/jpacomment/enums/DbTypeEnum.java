@@ -42,5 +42,16 @@ public enum DbTypeEnum implements IEnum {
         public String getValue() {
             return "ORACLE";
         }
+    },
+    POSTGRESQL {
+        @Override
+        public String getCode() {
+            return "4";
+        }
+
+        @Override
+        public String getValue() {
+            return "POSTGRESQL";
+        }
     }
 }

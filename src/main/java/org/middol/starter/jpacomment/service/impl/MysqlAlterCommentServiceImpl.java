@@ -25,12 +25,12 @@ public class MysqlAlterCommentServiceImpl implements AlterCommentService {
     }
 
     /**
-     * 1注释 2表名称 3字段名称
+     * 1数据库名称 2表名称 3注释
      */
     String updateTableComment = " ALTER TABLE %s.%s COMMENT = ?";
 
     /**
-     * 1注释 2表名称 3字段名称
+     * 1数据库名称 2表名称 3字段名称
      */
     String getUpdateColumnComment = " SELECT CONCAT('ALTER TABLE `',a.TABLE_SCHEMA,'`.`',a.TABLE_NAME,'` MODIFY COLUMN `',a.COLUMN_NAME,'` ',a.COLUMN_TYPE,\n" +
             " (CASE WHEN a.IS_NULLABLE = 'NO' THEN ' NOT NULL ' ELSE\t'' END), \n" +
