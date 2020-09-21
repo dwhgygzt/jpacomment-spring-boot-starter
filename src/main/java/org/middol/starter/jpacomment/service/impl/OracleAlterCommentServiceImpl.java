@@ -26,12 +26,12 @@ public class OracleAlterCommentServiceImpl implements AlterCommentService {
     /**
      * 1schema 2表名称 3注释
      */
-    String updateTableComment = "COMMENT ON TABLE \"%s\".\"%s\" IS '%s'";
+    String updateTableComment = "COMMENT ON TABLE %s.%s IS '%s'";
 
     /**
      * 1schema 2表名称 3字段名称 4注释
      */
-    String updateColumnComment = "COMMENT ON COLUMN \"%s\".\"%s\".\"%s\" IS '%s'";
+    String updateColumnComment = "COMMENT ON COLUMN %s.%s.%s IS '%s'";
 
     @Override
     public void alterTableComment(String tableName, String tableComment) {

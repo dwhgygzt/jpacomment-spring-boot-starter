@@ -26,12 +26,12 @@ public class PgSqlAlterCommentServiceImpl implements AlterCommentService {
     /**
      * 1SCHEMA 2表名称 3注释
      */
-    String updateTableComment = "COMMENT ON TABLE \"%s\".\"%s\" IS '%s';";
+    String updateTableComment = "COMMENT ON TABLE %s.%s IS '%s';";
 
     /**
      * 1SCHEMA 2表名称 3字段名称 4字段注释
      */
-    String updateColumnComment = "COMMENT ON COLUMN \"%s\".\"%s\".\"%s\" IS '%s'";
+    String updateColumnComment = "COMMENT ON COLUMN %s.%s.%s IS '%s'";
 
     @Override
     public void alterTableComment(String tableName, String tableComment) {
